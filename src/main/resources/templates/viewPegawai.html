@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<object th:include="fragments/fragment :: header" th:remove="tag"></object>
+	</head>
+	
+	<body>
+		<nav th:replace="fragments/fragment :: navbar"></nav>
+		<h3 th:text="'Lihat Data Pegawai - ' + ${pegawai.nip}"></h3>
+		<table>
+			<tr>
+				<td width="200" height="50">NIP</td>
+				<td th:text="${pegawai.nip}"></td>
+			</tr>
+			<tr>
+				<td height="50">Nama</td>
+				<td th:text="${pegawai.nama}"></td>
+			</tr>
+			<tr>
+				<td height="50">Tempat Lahir</td>
+				<td th:text="${pegawai.tempatLahir}"></td>
+			</tr>
+			<tr>
+				<td height="50">Tanggal Lahir</td>
+				<td th:text="${pegawai.tanggalLahir}"></td>
+			</tr>
+			<tr>
+				<td height="50">Tahun Masuk</td>
+				<td th:text="${pegawai.tahunMasuk}"></td>
+			</tr>
+			<tr>
+				<td height="50">Nama Instansi</td>
+				<td th:text="${namaInstansiPegawai}"></td>
+			</tr>
+			<tr>
+				<td style="vertical-align: top; text-align: left;" height="50">Jabatan</td>
+				<td style="vertical-align: top;">
+					<span th:each="jabatan : ${setJabatan}">
+						<p th:text="${jabatan.nama}"></p>
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<td height="50">Gaji</td>
+				<td th:text="${gaji}"></td>
+			</tr>
+		</table>
+		<form action="/pegawai/ubah" method="get">
+			<input type="hidden" name="nip" th:value="${pegawai.nip}">
+			<input type="submit" value="Ubah">
+		</form>
+	</body>
+</html>

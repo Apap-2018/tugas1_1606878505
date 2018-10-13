@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<object th:include="fragments/fragment :: header" th:remove="tag"></object>
+	</head>
+	
+	<body>
+		<nav th:replace="fragments/fragment :: navbar"></nav>
+		<div class="row">
+			<div class="col-md-6">
+				<h3 th:text="'Data Pegawai Termuda'"></h3>
+				<table>
+					<tr>
+						<td width="200" height="50">NIP</td>
+						<td th:text="${pegawaiTermuda.nip}"></td>
+					</tr>
+					<tr>
+						<td height="50">Nama</td>
+						<td th:text="${pegawaiTermuda.nama}"></td>
+					</tr>
+					<tr>
+						<td height="50">Tempat Lahir</td>
+						<td th:text="${pegawaiTermuda.tempatLahir}"></td>
+					</tr>
+					<tr>
+						<td height="50">Tanggal Lahir</td>
+						<td th:text="${pegawaiTermuda.tanggalLahir}"></td>
+					</tr>
+					<tr>
+						<td height="50">Tahun Masuk</td>
+						<td th:text="${pegawaiTermuda.tahunMasuk}"></td>
+					</tr>
+					<tr>
+						<td height="50">Nama Instansi</td>
+						<td th:text="${pegawaiTermuda.instansi.nama}"></td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top; text-align: left;" height="50">Jabatan</td>
+						<td style="vertical-align: top;">
+							<span th:each="jabatan : ${pegawaiTermuda.jabatan}">
+								<p th:text="${jabatan.nama}"></p>
+							</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-md-6">
+				<h3 th:text="'Data Pegawai Tertua'"></h3>
+					<table>
+						<tr>
+							<td width="200" height="50">NIP</td>
+							<td th:text="${pegawaiTertua.nip}"></td>
+						</tr>
+						<tr>
+							<td height="50">Nama</td>
+							<td th:text="${pegawaiTertua.nama}"></td>
+						</tr>
+						<tr>
+							<td height="50">Tempat Lahir</td>
+							<td th:text="${pegawaiTertua.tempatLahir}"></td>
+						</tr>
+						<tr>
+							<td height="50">Tanggal Lahir</td>
+							<td th:text="${pegawaiTertua.tanggalLahir}"></td>
+						</tr>
+						<tr>
+							<td height="50">Tahun Masuk</td>
+							<td th:text="${pegawaiTertua.tahunMasuk}"></td>
+						</tr>
+						<tr>
+							<td height="50">Nama Instansi</td>
+							<td th:text="${pegawaiTertua.instansi.nama}"></td>
+						</tr>
+						<tr>
+							<td style="vertical-align: top; text-align: left;" height="50">Jabatan</td>
+							<td style="vertical-align: top;">
+								<span th:each="jabatan : ${pegawaiTertua.jabatan}">
+									<p th:text="${jabatan.nama}"></p>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<object th:include="fragments/fragment :: header" th:remove="tag"></object>
+	</head>
+	
+	<body>
+		<nav th:replace="fragments/fragment :: navbar"></nav>
+		<h3>Gagal!!!!</h3>
+		<p th:text="'Jabatan gagal dihapus dikarenakan masih ada pegawai yang terdaftar didalamnya'"></p>
+	</body>
+
+</html>
