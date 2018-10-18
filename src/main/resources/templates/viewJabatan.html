@@ -23,11 +23,12 @@
 		</table>
 		
 		<div>
+			<br>
 			<form action="/jabatan/ubah" id="ubahJabatan" method="get">
 				<input type="hidden" name="idJabatan" th:value="${jabatan.id}"/>
 				<input type="submit" value="Ubah">
 			</form>
-			
+			<br>
 			<form action="/jabatan/hapus" id="ubahJabatan" method="post">
 				<input type="hidden" name="idJabatan" th:value="${jabatan.id}"/>
 				<input type="submit" value="Hapus">
