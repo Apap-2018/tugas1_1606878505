@@ -115,16 +115,21 @@ public class PegawaiServiceImpl implements PegawaiService {
 		PegawaiModel oldPegawai = pegawaiDb.findByNip(nip).get(0);
 		int pegawaiKe = 1;
 		
+		String pattern = "dd-MM-yy";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		
 		oldPegawai.setNama(newPegawai.getNama());
 		oldPegawai.setTempatLahir(newPegawai.getTempatLahir());
 		if (oldPegawai.getInstansi().equals(newPegawai.getInstansi())) {
-			
-			if (oldPegawai.getTanggalLahir().equals(newPegawai.getTanggalLahir())) {
+			String tanggalLahirLama = simpleDateFormat.format(oldPegawai.getTanggalLahir());
+			String tanggalLahirBaru = simpleDateFormat.format(newPegawai.getTanggalLahir());
+			if (tanggalLahirLama.equals(tanggalLahirBaru)) {
 				
 				if (oldPegawai.getTahunMasuk().equals(newPegawai.getTahunMasuk())) {
 					pegawaiKe = (int) (Long.parseLong(oldPegawai.getNip())%100);
 				}
 				else {
+					System.out.println("kok masuk sini");
 					oldPegawai.setTahunMasuk(newPegawai.getTahunMasuk());
 					List<PegawaiModel> listPegawaiNIPMirip = this.getPegawaiByInstansiAndTanggalLahirAndTahunMasuk(oldPegawai.getInstansi(), oldPegawai.getTanggalLahir(), oldPegawai.getTahunMasuk());
 					if (!listPegawaiNIPMirip.isEmpty()) {
@@ -160,9 +165,6 @@ public class PegawaiServiceImpl implements PegawaiService {
 		String tahunMasuk = oldPegawai.getTahunMasuk();
 		
 		String kodeInstansi = Long.toString(instansi.getId());
-		
-		String pattern = "dd-MM-yy";
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 		
 		String tanggalLahirString = simpleDateFormat.format(tanggalLahir).replaceAll("-", "");
 		String pegawaiKeString = pegawaiKe/10 == 0 ? ("0" + Integer.toString(pegawaiKe)) : (Integer.toString(pegawaiKe));
