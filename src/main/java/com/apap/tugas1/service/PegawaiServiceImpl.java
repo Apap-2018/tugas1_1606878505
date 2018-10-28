@@ -130,8 +130,8 @@ public class PegawaiServiceImpl implements PegawaiService {
 				}
 				else {
 					System.out.println("kok masuk sini");
+					List<PegawaiModel> listPegawaiNIPMirip = this.getPegawaiByInstansiAndTanggalLahirAndTahunMasuk(newPegawai.getInstansi(), newPegawai.getTanggalLahir(), newPegawai.getTahunMasuk());
 					oldPegawai.setTahunMasuk(newPegawai.getTahunMasuk());
-					List<PegawaiModel> listPegawaiNIPMirip = this.getPegawaiByInstansiAndTanggalLahirAndTahunMasuk(oldPegawai.getInstansi(), oldPegawai.getTanggalLahir(), oldPegawai.getTahunMasuk());
 					if (!listPegawaiNIPMirip.isEmpty()) {
 						pegawaiKe = (int) (Long.parseLong(listPegawaiNIPMirip.get(listPegawaiNIPMirip.size()-1).getNip())%100) + 1;
 					}
@@ -139,9 +139,9 @@ public class PegawaiServiceImpl implements PegawaiService {
 			
 			}
 			else {
+				List<PegawaiModel> listPegawaiNIPMirip = this.getPegawaiByInstansiAndTanggalLahirAndTahunMasuk(newPegawai.getInstansi(), newPegawai.getTanggalLahir(), newPegawai.getTahunMasuk());
 				oldPegawai.setTanggalLahir(newPegawai.getTanggalLahir());
 				oldPegawai.setTahunMasuk(newPegawai.getTahunMasuk());
-				List<PegawaiModel> listPegawaiNIPMirip = this.getPegawaiByInstansiAndTanggalLahirAndTahunMasuk(oldPegawai.getInstansi(), oldPegawai.getTanggalLahir(), oldPegawai.getTahunMasuk());
 				if (!listPegawaiNIPMirip.isEmpty()) {
 					pegawaiKe = (int) (Long.parseLong(listPegawaiNIPMirip.get(listPegawaiNIPMirip.size()-1).getNip())%100) + 1;
 				}
@@ -149,10 +149,10 @@ public class PegawaiServiceImpl implements PegawaiService {
 		
 		}
 		else {
+			List<PegawaiModel> listPegawaiNIPMirip = this.getPegawaiByInstansiAndTanggalLahirAndTahunMasuk(newPegawai.getInstansi(), newPegawai.getTanggalLahir(), newPegawai.getTahunMasuk());
 			oldPegawai.setTanggalLahir(newPegawai.getTanggalLahir());
 			oldPegawai.setTahunMasuk(newPegawai.getTahunMasuk());
 			oldPegawai.setInstansi(newPegawai.getInstansi());
-			List<PegawaiModel> listPegawaiNIPMirip = this.getPegawaiByInstansiAndTanggalLahirAndTahunMasuk(oldPegawai.getInstansi(), oldPegawai.getTanggalLahir(), oldPegawai.getTahunMasuk());
 			if (!listPegawaiNIPMirip.isEmpty()) {
 				pegawaiKe = (int) (Long.parseLong(listPegawaiNIPMirip.get(listPegawaiNIPMirip.size()-1).getNip())%100) + 1;
 			}

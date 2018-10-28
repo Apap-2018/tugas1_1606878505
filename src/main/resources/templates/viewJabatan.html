@@ -21,18 +21,20 @@
 				<td th:text="${jabatan.gajiPokok}"></td>
 			</tr>
 		</table>
-		
-		<div>
-			<br>
-			<form action="/jabatan/ubah" id="ubahJabatan" method="get">
-				<input type="hidden" name="idJabatan" th:value="${jabatan.id}"/>
-				<input type="submit" value="Ubah">
-			</form>
-			<br>
-			<form action="/jabatan/hapus" id="ubahJabatan" method="post">
-				<input type="hidden" name="idJabatan" th:value="${jabatan.id}"/>
-				<input type="submit" value="Hapus">
-			</form>
+		<br>
+		<div class="row"  style="margin-left: 5px; margin-top: -10px">
+			<div class="col-md-0">
+				<form action="/jabatan/ubah" id="ubahJabatan" method="get">
+					<input type="hidden" name="idJabatan" th:value="${jabatan.id}"/>
+					<input class="btn btn-primary" type="submit" value="Ubah">
+				</form>
+			</div>
+			<div class="col-md-1">
+				<form action="/jabatan/hapus" id="ubahJabatan" method="post">
+					<input type="hidden" name="idJabatan" th:value="${jabatan.id}"/>
+					<input class="btn btn-primary" type="submit" value="Hapus">
+				</form>
+			</div>
 		</div>
 	</body>
 </html>
