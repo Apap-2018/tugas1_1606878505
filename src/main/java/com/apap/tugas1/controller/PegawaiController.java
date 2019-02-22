@@ -159,7 +159,8 @@ public class PegawaiController {
 	@RequestMapping(value = "/pegawai/cari", method = RequestMethod.GET)
 	public String cariPegawai (@RequestParam(value="provinsiId", required = false) Optional<Long> provinsiId, 
 								@RequestParam(value="instansiId", required = false) Optional<Long> instansiId, 
-								@RequestParam(value="jabatanId", required = false) Optional<Long> jabatanId, Model model) {
+								@RequestParam(value="jabatanId", required = false) Optional<Long> jabatanId,
+								@RequestParam(value="tahunMasuk", required = false) Optional<String> tahunMasuk,Model model) {
 		
 		ProvinsiModel provinsi = null;
 		InstansiModel instansi = null;
@@ -187,6 +188,9 @@ public class PegawaiController {
 			else if (jabatanId.isPresent()) {
 				jabatan = jabatanService.getJabatanById(jabatanId.get()).get();	
 				hasilPencarian = pegawaiService.getPegawaiByProvinsiAndJabatan(provinsiId.get(), jabatan);
+			}
+			else if(tahunMasuk.isPresent()) {
+				hasilPencarian = pegawaiService.getPegawaiByProvinsiAndTahunMasuk(provinsiId.get(), tahunMasuk.get());
 			}
 			else {
 				hasilPencarian = pegawaiService.getPegawaiByProvinsi(provinsiId.get());

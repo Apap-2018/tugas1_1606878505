@@ -179,4 +179,16 @@ public class PegawaiServiceImpl implements PegawaiService {
 		return pegawaiDb.findByInstansiOrderByTanggalLahirAsc(instansi);
 	}
 
+	@Override
+	public List<PegawaiModel> getPegawaiByProvinsiAndTahunMasuk(long provinsiId, String tahunMasuk){
+		List<PegawaiModel> hasil = new ArrayList<>();
+		
+		for (PegawaiModel pegawai : this.getPegawaiByProvinsi(provinsiId)) {
+			if (pegawai.getTahunMasuk().equals(tahunMasuk)) {
+				hasil.add(pegawai);
+			}
+		}
+		
+		return hasil;
+	}
 }

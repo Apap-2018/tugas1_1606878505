@@ -31,4 +31,6 @@ public interface PegawaiService {
 	List<PegawaiModel> getPegawaiByJabatan(JabatanModel jabatan);
 
 	List<PegawaiModel> getTuaMudaInstansi(InstansiModel instansi);
+
+	List<PegawaiModel> getPegawaiByProvinsiAndTahunMasuk(long provinsiId, String tahunMasuk);
 }
